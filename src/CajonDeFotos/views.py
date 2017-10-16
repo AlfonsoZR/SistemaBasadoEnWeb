@@ -14,19 +14,21 @@ def inicio(request):
     form = RegModelForm(request.POST or None)
 
     context = {
-    "titulo": titulo,
+        "titulo": titulo,
         "form":  form,
     }
 
 
     if form.is_valid():
         instance = form.save(commit=False)
+        nombre = form.cleaned_data.get("nombre")
+        email = form.cleaned_data.get("email")
         if not instance.nombre:
             instance.nombre = "Usuario"
         instance.save()
 
         context = {
-        "titulo": "Gracias por registrarte %s " %(nombre)
+        "titulo": "Gracias por registrarte %s" %(nombre)
         }
 
         print instance

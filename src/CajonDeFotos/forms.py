@@ -9,11 +9,11 @@ class RegModelForm(forms.ModelForm):
 #validaciones para el email, cuando se esta registrando un nuevo usuario
     def clean_email(self):
         email = self.cleaned_data.get("email")
-        email_base, proveedor = email.split("@")
-        dominio, extension = proveedor.split(".")
+        #email_base, proveedor = email.split("@")
+        #dominio, extension = proveedor.split(".mx")
 
-        if not extension == "edu":
-            raise forms.ValidationError("Utiliza un correo institucional")
+        #if not extension == "edu":
+        #    raise forms.ValidationError("Utiliza un correo institucional")
         return email
     def clean_nombre(self):
         nombre = self.cleaned_data.get("nombre")
