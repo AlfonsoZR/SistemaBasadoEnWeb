@@ -129,9 +129,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+# Configuracion para templates static y contenido estatico del proyecto
 STATIC_URL = '/static/'
+STATIC_URL = '/media/'
+#/static/imagenes/img1.jpg
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    # '/var/www/static/'
+    os.path.join(BASE_DIR, "static_pro","static"),
+    # '/var/www/static/',
 ]
+
+STATIC_ROOT= os.path.join(os.path.dirname(BASE_DIR), "static_env","static_root")
+MEDIA_ROOT= os.path.join(os.path.dirname(BASE_DIR), "static_env","media_root")
