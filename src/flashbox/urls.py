@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from CajonDeFotos import views
 
+from .views import album
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.inicio, name='inicio'),
     url(r'^contact/$', views.contact, name='contact'),
+    url(r'^album/$', album, name='album'),
 ]
 
 #if settings.DEBUG:

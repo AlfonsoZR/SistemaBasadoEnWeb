@@ -1,20 +1,39 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Inicio</title>
-  </head>
-  <body>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+<!--Jumbotron-->
+{% block head_title %}Bienvenido | {{block.super}}{% endblock %}
+
+{% block jumbotron%}
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Album de Fotos</h1>
+    <p class="lead text-muted">Flashbox te permite subir tus propias imagenes, manteniendolas en un respositorio. Tabmien puedes mandar tus imagenes a un frupo de editores profesionales para que editen tus fotos por ti.  </p>
+    <p>
+      <a href="{% url 'contact' %}" class="btn btn-primary">Nuevo Trabajo</a>
+      <a href="{% url 'album' %}" class="btn btn-secondary">Trabajos terminados</a>
+    </p>
+  </div>
+</section>
+{% endblock %}
+
+
       {{ titulo }}<br/>
       {{ request.user }}
       <hr/>
       <br/>
 
+
+{% block content %}
+  <br/>
+  <div class="row">
+    <div class="col-sm-4"
+    <p class="lead"> Crear cuenta </p>
     <form method="POST" action="">{% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Registrame"/>
+    {{form|crispy}}
+    <input class="btn btn-primary" type="submit" value="Registrame"/>
+
   </form>
-
-
-  </body>
-</html>
+</div>
+</div>
+<br/>
+{% endblock %}

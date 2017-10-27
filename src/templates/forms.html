@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Inicio</title>
-  </head>
-  <body>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 
-
-
-      {{ titulo }}<br/>
-      {{ request.user }}
+      {{ titulo }}
       <hr/>
-      <br/>
 
-    <form method="POST" action="">{% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Registrame"/>
-    </form>
-
-
-  </body>
-</html>
+{% block content %}
+<br/>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3"
+<form method="POST" action="">{% csrf_token %}
+{{form|crispy}}
+<input class="btn btn-primary" type="submit" value="Registrame"/>
+</form>
+<div/>
+<div/>
+{% endblock%}

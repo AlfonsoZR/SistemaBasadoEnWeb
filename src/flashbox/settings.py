@@ -42,13 +42,18 @@ https:/accounts.google.com/displayunlockcaptcha
 # Application definition
 
 INSTALLED_APPS = [
+    # apps django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #apps de terceros
+    'crispy_forms',
+    #apps del proyecto
     'CajonDeFotos'
+
 ]
 
 MIDDLEWARE = [
@@ -62,6 +67,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'flashbox.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 TEMPLATES = [
     {
