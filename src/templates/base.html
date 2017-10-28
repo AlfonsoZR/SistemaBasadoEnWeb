@@ -16,9 +16,18 @@
   <body>
 
     {% include "navbar.html"%}
-
+{% if request.user.is_authenticated %}
     {% block jumbotron %}
     {% endblock %}
+{% else %}
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Album de Fotos</h1>
+        <p class="lead text-muted">Flashbox te permite subir tus propias imagenes, manteniendolas en un respositorio. Tabmien puedes mandar tus imagenes a un grupo de editores profesionales para que editen tus fotos por ti.  </p>
+        
+      </div>
+    </section>
+    {% endif %}
 
     <div class="container">
       {% block content %}
